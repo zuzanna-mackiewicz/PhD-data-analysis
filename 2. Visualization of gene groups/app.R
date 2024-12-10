@@ -42,7 +42,7 @@ final_rnai <- read.csv("~/datasets/final_rnai.csv")
 
 final_74_83_1 <- read.csv("~/datasets/final_74_83_1.csv")
 final_74_83_2 <- read.csv("~/datasets/final_74_83_2.csv")
-final_74_83_3 <- read.csv("~/datasets/inal_74_83_3.csv")
+final_74_83_3 <- read.csv("~/datasets/final_74_83_3.csv")
 final_74_83_1_2_3 <- read.csv("~/datasets/final_74_83_1_2_3.csv")
 final_N2_83_2 <- read.csv("~/datasets/final_83_N2_2.csv")
 final_N2_83_3 <- read.csv("~/datasets/final_83_N2_3.csv")
