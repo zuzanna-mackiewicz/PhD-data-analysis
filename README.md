@@ -36,6 +36,17 @@ The easiest method is to access the apps online through the URL provided below. 
 
 For users who wish to customize the applications or analyze their own datasets, the raw code is available in this repository. Each application is organized in its own folder. By downloading the folder and opening it in R Studio, users can run the corresponding R Shiny file locally and later modify the app according to their needs.
 
+**Required Packages**
+- *shiny*
+- *DT*
+- *tidyverse*
+- *dplyr*
+- *ggplot2*
+- *ggrepel*
+- *VennDiagram*
+- *readxl*
+
+
 Detailed description of data analysis tools functionality
 ---
 **Tool nr 1 – RNA-seq data analysis**
