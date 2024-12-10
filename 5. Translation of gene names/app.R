@@ -58,17 +58,17 @@ server <- function(input, output,session) {
     translated_table <- c_elegans_annotations %>% 
       filter(symbol %in% rv$list | gene_id %in% rv$list | transcript_id %in% rv$list | transcript_id_version2 %in% rv$list)
     
-    translated_table <- unique(translated_table, by = "gene_id")
-    # translated_table <- translated_table[,c(7,9,11)]
+    translated_table <- translated_table[,c(7,9,11)]
+    translated_table_unique <- unique(translated_table, by="gene_id")
     
     if (rv$kind_of_translation == 'wb')
-    {table <- translated_table[,9]
+    {table <- translated_table_unique[,2]
     colnames(table) = ''}
     else if (rv$kind_of_translation == 'symbol')
-    {table <- translated_table[,7]
+    {table <- translated_table_unique[,1]
     colnames(table) = ''}
     else if (rv$kind_of_translation == '')
-    {table <- translated_table[,c(7,9,11)]}
+    {table <- translated_table_unique[,c(1,2,3)]}
     
     return(table %>%
              DT::datatable(rownames = FALSE,

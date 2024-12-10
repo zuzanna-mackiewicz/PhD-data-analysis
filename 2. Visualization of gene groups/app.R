@@ -169,48 +169,67 @@ server <- function(input, output,session) {
         } else if(input$experiment == "Nanopore: WT vs nspc") {
           data_for_MA <- final_nspc %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs nspc") {
-          data_for_MA <- final_N2_NSPC %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_NSPC)[8] <- 'significance'
+          data_for_MA <- final_N2_NSPC %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: tent-5 vs nspc/tent-5") {
-          data_for_MA <- final_tm_NSPCtm %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_tm_NSPCtm)[8] <- 'significance'
+          data_for_MA <- final_tm_NSPCtm %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: daf-16 vs nspc/daf-16") {
-          data_for_MA <- final_daf_NSPCdaf %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_daf_NSPCdaf)[8] <- 'significance'
+          data_for_MA <- final_daf_NSPCdaf %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs tent-5") {
-          data_for_MA <- final_N2_tm %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_tm)[8] <- 'significance'
+          data_for_MA <- final_N2_tm %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs daf-16") {
-          data_for_MA <- final_N2_daf %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_daf)[8] <- 'significance'
+          data_for_MA <- final_N2_daf %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: nspc vs nspc/tent-5") {
-          data_for_MA <- final_NSPC_NSPCtm %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_NSPC_NSPCtm)[8] <- 'significance'
+          data_for_MA <- final_NSPC_NSPCtm %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: nspc vs nspc/daf-16") {
-          data_for_MA <- final_NSPC_NSPCdaf %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_NSPC_NSPCdaf)[8] <- 'significance'
+          data_for_MA <- final_NSPC_NSPCdaf %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs nspc/tent-5") {
-          data_for_MA <- final_N2_NSPCtm %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_NSPCtm)[8] <- 'significance'
+          data_for_MA <- final_N2_NSPCtm %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs nspc/daf-16") {
-          data_for_MA <- final_N2_NSPCdaf %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_NSPCdaf)[8] <- 'significance'
+          data_for_MA <- final_N2_NSPCdaf %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs nspc (RNAi)") {
-          data_for_MA <- final_rnai %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_rnai)[8] <- 'significance'
+          data_for_MA <- final_rnai %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT hermaphrodites vs males") {
-          data_for_MA <- final_male %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_male)[8] <- 'significance'
+          data_for_MA <- final_male %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: inactive miniSOG vs active miniSOG (1)") {
-          data_for_MA <- final_74_83_1 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_74_83_1)[8] <- 'significance'
+          data_for_MA <- final_74_83_1 %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: inactive miniSOG vs active miniSOG (2)") {
-          data_for_MA <- final_74_83_2 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_74_83_2)[8] <- 'significance'
+          data_for_MA <- final_74_83_2 %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: inactive miniSOG vs active miniSOG (3)") {
-          data_for_MA <- final_74_83_3 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_74_83_3)[8] <- 'significance'
+          data_for_MA <- final_74_83_3 %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: inactive miniSOG vs active miniSOG (1+2+3)") {
-          data_for_MA <- final_74_83_1_2_3 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_74_83_1_2_3)[8] <- 'significance'
+          data_for_MA <- final_74_83_1_2_3 %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs active miniSOG (2)") {
-          data_for_MA <- final_N2_83_2 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_83_2)[8] <- 'significance'
+          data_for_MA <- final_N2_83_2 %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs active miniSOG (3)") {
-          data_for_MA <- final_N2_83_3 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_83_3)[8] <- 'significance'
+          data_for_MA <- final_N2_83_3 %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs inactive miniSOG (2)") {
-          data_for_MA <- final_N2_74_2 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_74_2)[8] <- 'significance'
+          data_for_MA <- final_N2_74_2 %>% dplyr::arrange(significance)
         } else if(input$experiment == "RNA-seq: WT vs inactive miniSOG (3)") {
-          data_for_MA <- final_N2_74_3 %>% mutate(log2FoldChange = log2(fold_change)) %>% dplyr::arrange(significance)
+          colnames(final_N2_74_3)[8] <- 'significance'
+          data_for_MA <- final_N2_74_3 %>% dplyr::arrange(significance)
         }
         
         group <- data_for_MA %>% filter(symbol %in% group_of_genes)
         
-        plot <- ggplot(data_for_MA, aes(x=baseMean, y=log2FoldChange, color=significance)) + ggtitle(colnames(df_of_groups)[i]) + geom_point(size = 3, alpha = 0.3) + scale_color_manual(values=c("gray70", "red")) + theme_light() + geom_point(data=group, size =3, color="black", shape = 21) + ylim(-3,3)+ scale_x_log10()
+        plot <- ggplot(data_for_MA, aes(x=baseMean, y=log2FoldChange, color=significance)) + ggtitle(colnames(df_of_groups)[i]) + geom_point(size = 4, alpha = 0.3) + scale_color_manual(values=c("gray70", "red3")) + theme_light() + geom_point(data=group, size =4, color="black", shape = 21) + scale_x_log10()
         
         rv$list[[i]] <- plot
       rv$list_of_names[[i]] <- colnames(df_of_groups)[i]
