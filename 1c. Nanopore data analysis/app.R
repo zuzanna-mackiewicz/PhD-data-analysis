@@ -109,51 +109,51 @@ server <- function(input, output,session) {
     if(input$experiment == "WT vs tent-5")
     {table <- final_tent[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs tent-5 (males)")
     {table <- final_males[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs tent-5 (eggs)")
     {table <- final_eggs[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs gld-2")
     {table <- final_gld2[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs gld-4")
     {table <- final_gld4[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs gld-4/tent-5")
     {table <- final_gld4_tm[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT hermaphrodites vs males")
     {table <- final_males_herm[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs larp-5 (RNAi)")
     {table <- final_larp[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs atx-2 (RNAi)")
     {table <- final_atx[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs C34F6.10 (RNAi)")
     {table <- final_rnai_fndc3[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs C34F6.10 (KO)")
     {table <- final_fndc3[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs nspc")
     {table <- final_nspc[,c(2:11,14,13,1)] %>% 
       dplyr::mutate(across(c(fold_change,cohen_d), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(p.value:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(p.value:padj), ~ format(signif(., digits = 2))))}
     
     
     return(table %>% 

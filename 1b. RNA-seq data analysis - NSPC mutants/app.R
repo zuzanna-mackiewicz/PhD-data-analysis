@@ -108,58 +108,58 @@ server <- function(input, output,session) {
     {table <- final_N2_NSPC[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("N2.1":"NSPC.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "tent-5 vs nspc/tent-5")
     {table <- final_tm_NSPCtm[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("tm.1":"NSPC.tm.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "daf-16 vs nspc/daf-16")
     {table <- final_daf_NSPCdaf[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("daf.1":"NSPC.daf.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs tent-5")
     {table <- final_N2_tm[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("N2_1":"tm_3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs daf-16")
     {table <- final_N2_daf[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("N2_1":"daf_3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "nspc vs nspc/tent-5")
     {table <- final_NSPC_NSPCtm[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("NSPC_1":"NSPC_tm_3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "nspc vs nspc/daf-16")
     {table <- final_NSPC_NSPCdaf[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("NSPC.1":"NSPC.daf.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs nspc/tent-5")
     {table <- final_N2_NSPCtm[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("N2.1":"NSPC.tm.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs nspc/daf-16")
     {table <- final_N2_NSPCdaf[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("N2.1":"NSPC.daf.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "RNAi: WT vs nspc")
     {table <- final_rnai[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c(empty_1:NSPC_3), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT hermaphrodites vs males")
     {table <- final_male[,c(9,2,3,6:8,10,13,14,11,12)] %>% 
       dplyr::mutate(across(c(C_elegans_N2_biorep_1:C_elegans_males_N2_biorep_2), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
-  
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
+    
     return(table %>% 
       DT::datatable(rownames = FALSE,
                     selection = list(mode = "single",target = 'cell'),

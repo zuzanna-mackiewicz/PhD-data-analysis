@@ -115,37 +115,37 @@ server <- function(input, output,session) {
     {table <- final_74_83_1[,c(9,2:3,6:8,1,13:15,10:12)] %>% 
       dplyr::mutate(across(c("ADZ74.1.1":"ADZ83.3.1"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "2: inactive miniSOG vs active miniSOG")
     {table <- final_74_83_2[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("ADZ74.1.2":"ADZ83.3.2"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "3: inactive miniSOG vs active miniSOG")
     {table <- final_74_83_3[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("ADZ74.1.3":"ADZ83.3.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "2+3: inactive miniSOG vs active miniSOG")
     {table <- final_74_83_2_3[,c(9,2:3,6:8,1,10:12,16:18,13:15,19:21)] %>% 
       dplyr::mutate(across(c("ADZ74.1.3":"ADZ83.3.2"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "1+2+3: inactive miniSOG vs active miniSOG")
     {table <- final_74_83_1_2_3[,c(9,2:3,6:8,1,10:12,16:18,25:27,13:15,19:21,22:24)] %>% 
       dplyr::mutate(across(c("ADZ74.1.3":"ADZ83.3.1"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "2: WT vs active miniSOG")
     {table <- final_N2_83_2[,c(9,2:3,6:8,1,13:15,10:12)] %>% 
       dplyr::mutate(across(c("N2.1.2":"ADZ83.3.2"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "3: WT vs active miniSOG")
     {table <- final_N2_83_3[,c(9,2:3,6:8,1,13:15,10:12)] %>% 
       dplyr::mutate(across(c("N2.1.3":"ADZ83.3.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "2+3: WT vs active miniSOG")
     {table <- final_N2_83_2_3[,c(9,2:3,6:8,1,13:15,19:21,10:12,16:18)] %>% 
       dplyr::mutate(across(c("N2.1.3":"ADZ83.3.2"), round, digits = 0)) %>% 
@@ -155,33 +155,33 @@ server <- function(input, output,session) {
     {table <- final_N2_74_2[,c(9,2:3,6:8,1,13:15,10:12)] %>% 
       dplyr::mutate(across(c("N2.1.2":"ADZ74.3.2"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "3: WT vs inactive miniSOG")
     {table <- final_N2_74_3[,c(9,2:3,6:8,1,13:15,10:12)] %>% 
       dplyr::mutate(across(c("N2.1.3":"ADZ74.3.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
-     else if(input$experiment == "2+3: WT vs inactive miniSOG")
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
+    else if(input$experiment == "2+3: WT vs inactive miniSOG")
     {table <- final_N2_74_2_3[,c(9,2:3,6:8,1,13:15,19:21,10:12,16:18)] %>% 
       dplyr::mutate(across(c("N2.1.3":"ADZ74.3.2"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT hermaphrodites vs males")
     {table <- final_male[,c(9,2,3,6:8,10,13,14,11,12)] %>% 
       dplyr::mutate(across(c(C_elegans_N2_biorep_1:C_elegans_males_N2_biorep_2), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs nspc")
     {table <- final_N2_NSPC[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("N2.1":"NSPC.3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
     else if(input$experiment == "WT vs tent-5")
     {table <- final_N2_tm[,c(9,2:3,6:8,1,10:15)] %>% 
       dplyr::mutate(across(c("N2_1":"tm_3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
-  
+      dplyr::mutate(across(c(pvalue:padj), ~ format(signif(., digits = 2))))}
+    
     return(table %>% 
       DT::datatable(rownames = FALSE,
                     selection = list(mode = "single",target = 'cell'),
