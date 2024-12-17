@@ -16,21 +16,21 @@ library(ggrepel)
 library(tidyverse)
 
 
-final_74_83_1 <- read.csv("~/datasets/final_74_83_1.csv")
-final_74_83_2 <- read.csv("~/datasets/final_74_83_2.csv")
-final_74_83_3 <- read.csv("~/datasets/final_74_83_3.csv")
-final_74_83_2_3 <- read.csv("~/datasets/final_83_74_2_3.csv")
-final_74_83_1_2_3 <- read.csv("~/datasets/final_74_83_1_2_3.csv")
-final_N2_83_2 <- read.csv("~/datasets/final_83_N2_2.csv")
-final_N2_83_3 <- read.csv("~/datasets/final_83_N2_3.csv")
-final_N2_83_2_3 <- read.csv("~/datasets/final_N2_83_2_3.csv")
-final_N2_74_2 <- read.csv("~/datasets/final_74_N2_2.csv")
-final_N2_74_3 <- read.csv("~/datasets/final_74_N2_3.csv")
-final_N2_74_2_3 <- read.csv("~/datasets/final_N2_74_2_3.csv")
+final_74_83_1 <- read.csv("../datasets/final_74_83_1.csv")
+final_74_83_2 <- read.csv("../datasets/final_74_83_2.csv")
+final_74_83_3 <- read.csv("../datasets/final_74_83_3.csv")
+final_74_83_2_3 <- read.csv("../datasets/final_83_74_2_3.csv")
+final_74_83_1_2_3 <- read.csv("../datasets/final_74_83_1_2_3.csv")
+final_N2_83_2 <- read.csv("../datasets/final_83_N2_2.csv")
+final_N2_83_3 <- read.csv("../datasets/final_83_N2_3.csv")
+final_N2_83_2_3 <- read.csv("../datasets/final_N2_83_2_3.csv")
+final_N2_74_2 <- read.csv("../datasets/final_74_N2_2.csv")
+final_N2_74_3 <- read.csv("../datasets/final_74_N2_3.csv")
+final_N2_74_2_3 <- read.csv("../datasets/final_N2_74_2_3.csv")
 
-final_male <- read.csv("~/datasets/final_male_herm.csv")
-final_N2_NSPC <- read.csv("~/datasets/final_N2_NSPC.csv")
-final_N2_tm <- read.csv("~/datasets/final_N2_tm.csv")
+final_male <- read.csv("../datasets/final_male_herm.csv")
+final_N2_NSPC <- read.csv("../datasets/final_N2_NSPC.csv")
+final_N2_tm <- read.csv("../datasets/final_N2_tm.csv")
 
 
 # Define UI for application that draws a histogram
@@ -168,7 +168,7 @@ server <- function(input, output,session) {
       dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
     else if(input$experiment == "WT hermaphrodites vs males")
     {table <- final_male[,c(9,2,3,6:8,10,13,14,11,12)] %>% 
-      dplyr::mutate(across(c(C_elegans_N2_biorep_1:C_elegans_males_N2_biorep_3), round, digits = 0)) %>% 
+      dplyr::mutate(across(c(C_elegans_N2_biorep_1:C_elegans_males_N2_biorep_2), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
       dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
     else if(input$experiment == "WT vs nspc")
@@ -178,7 +178,7 @@ server <- function(input, output,session) {
       dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
     else if(input$experiment == "WT vs tent-5")
     {table <- final_N2_tm[,c(9,2:3,6:8,1,10:15)] %>% 
-      dplyr::mutate(across(c("N2.1":"tm.3"), round, digits = 0)) %>% 
+      dplyr::mutate(across(c("N2_1":"tm_3"), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
       dplyr::mutate(across(c(pvalue:padj), signif, digits = 2))}
   
