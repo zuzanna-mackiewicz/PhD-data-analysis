@@ -333,7 +333,7 @@ server <- function(input, output,session) {
     final_summary <- summary %>% 
       dplyr::mutate(across(c(control_1:test_3), round, digits = 0)) %>% 
       dplyr::mutate(across(c(baseMean:log2FoldChange), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(padj), signif, digits = 2)) %>% 
+      dplyr::mutate(across(c(padj), ~ format(signif(., digits = 2)))) %>% 
       DT::datatable(rownames = FALSE, selection="none",options = list(pageLength = 24, dom = 't', columnDefs = list(list(width = "100px", targets = c(1:11)),list(className = 'dt-center', targets = c(1:11))))) 
     return(final_summary)
  })

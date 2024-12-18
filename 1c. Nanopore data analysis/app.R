@@ -337,7 +337,7 @@ server <- function(input, output,session) {
     
     final_summary <- summary %>% 
       dplyr::mutate(across(c(fold_change), round, digits = 3)) %>% 
-      dplyr::mutate(across(c(padj), signif, digits = 2)) %>%
+      dplyr::mutate(across(c(padj), ~ format(signif(., digits = 2)))) %>% 
       DT::datatable(rownames = FALSE, selection="none",options = list(pageLength = 24,dom = 't', columnDefs = list(list(width = "100px", targets = c(1:9)),list(className = 'dt-center', targets = c(1:9))))) 
     return(final_summary)
   })
