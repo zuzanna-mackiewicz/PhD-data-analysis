@@ -28,9 +28,9 @@ The applications can be accessed in two different ways:
 
 **1. Web Access via URL**
 
-The easiest method is to access the apps online through the URL provided below. However, in this format, the applications will load only with default datasets described in the PhD thesis “…”.
+The easiest method is to access the apps online through the URL provided below. However, in this format, the applications will load only with default datasets described in the PhD thesis **“Investigating cytoplasmic polyadenylation and its role in gene regulation and physiology in Caenorhabditis elegans”**.
 
-**URL:** *http://212.87.21.131/nanopore2/Zuza/*
+**URL:** *http://zmackiewicz-rstudio.iimcb.gov.pl:3838/*
 
 **2. R Studio Access**
 
@@ -72,7 +72,7 @@ level, and “y” to log2 fold change expression change. Significantly changed 
 
 ![](apps_design/1.jpg)
 
-For clarity, the datasets from the PhD thesis “...” – available at the provided URL and GitHub repository – have been organized into three separate applications, each focusing on different part of the research. The first app focuses on differential gene expression in worms after the excretory gland cell ablation, second app on differential expression in nspc mutant worms, and the third app on differential polyadenylation driven by various poly(A) polymerases.
+For clarity, the datasets from the PhD thesis **“Investigating cytoplasmic polyadenylation and its role in gene regulation and physiology in Caenorhabditis elegans”** – available at the provided URL and GitHub repository – have been organized into three separate applications, each focusing on different part of the research. The first app focuses on differential gene expression in worms after the excretory gland cell ablation, second app on differential expression in nspc mutant worms, and the third app on differential polyadenylation driven by various poly(A) polymerases.
 
 **Tool nr 2 – Visualization of gene groups**
 
